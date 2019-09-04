@@ -1,12 +1,3 @@
-type Query {
-    alunos: [Aluno]
-    aluno(id: Int): Aluno
-    cursos: [Curso]
-    curso(id: Int): Curso
-    escolas: [Escola]
-    escola(id: Int): Escola
-}
-
 type Aluno {
     id: Int,
     nome: String,
@@ -28,4 +19,13 @@ type Escola {
     telefone: String,
     ativo: Boolean,
     cursos: [Curso]
+}
+
+type Query {
+    alunos: [Aluno]
+    aluno(id: Int): Aluno
+    cursos: [Curso]
+    curso(id: Int): Curso
+    escolas: [Escola]
+    escola(id: Int): Escola
 }

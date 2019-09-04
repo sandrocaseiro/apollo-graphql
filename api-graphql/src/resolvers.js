@@ -5,32 +5,32 @@ module.exports = {
         alunos(parent) {
             console.log('------------------------------------------------');
             return api.get('/alunos')
-                .then(resp => Promise.resolve(resp.data));
+                .then(resp => resp.data);
         },
         aluno(parent, args) {
             console.log('------------------------------------------------');
             return api.get(`/alunos/${args.id}`)
-                .then(resp => Promise.resolve(resp.data));
+                .then(resp => resp.data);
         },
         cursos(parent) {
             console.log('------------------------------------------------');
             return api.get('/cursos')
-                .then(resp => Promise.resolve(resp.data));
+                .then(resp => resp.data);
         },
         curso(parent, args) {
             console.log('------------------------------------------------');
             return api.get(`/cursos/${args.id}`)
-                .then(resp => Promise.resolve(resp.data));
+                .then(resp => resp.data);
         },
         escolas(parent) {
             console.log('------------------------------------------------');
             return api.get('/escolas')
-                .then(resp => Promise.resolve(resp.data));
+                .then(resp => resp.data);
         },
         escola(parent, args) {
             console.log('------------------------------------------------');
             return api.get(`/escolas/${args.id}`)
-                .then(resp => Promise.resolve(resp.data));
+                .then(resp => resp.data);
         }
     },
     Aluno: {
