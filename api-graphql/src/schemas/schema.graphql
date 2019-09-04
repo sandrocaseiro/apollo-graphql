@@ -1,0 +1,31 @@
+type Query {
+    alunos: [Aluno]
+    aluno(id: Int): Aluno
+    cursos: [Curso]
+    curso(id: Int): Curso
+    escolas: [Escola]
+    escola(id: Int): Escola
+}
+
+type Aluno {
+    id: Int,
+    nome: String,
+    email: String,
+    telefone: String,
+    ativo: Boolean,
+    escola: Escola,
+    curso: Curso
+}
+
+type Curso {
+    id: Int,
+    nome: String
+}
+
+type Escola {
+    id: Int,
+    nome: String,
+    telefone: String,
+    ativo: Boolean,
+    cursos: [Curso]
+}

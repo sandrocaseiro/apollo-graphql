@@ -1,0 +1,218 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Exemplo",
+        "version": "1.0.0",
+        "title": "API Exemplo"
+    },
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/alunos": {
+            "get": {
+                "summary": "Lista alunos",
+                "description": "Lista todos os alunos",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação com sucesso",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Aluno"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/alunos/{id}": {
+            "get": {
+                "summary": "Procura aluno por ID",
+                "description": "Retorna um aluno",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "ID do aluno",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Operação com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/Aluno"
+                        }
+                    }
+                }
+            }
+        },
+        "/cursos": {
+            "get": {
+                "summary": "Lista cursos",
+                "description": "Lista todos os cursos",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação com sucesso",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Curso"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cursos/{id}": {
+            "get": {
+                "summary": "Procura curso por ID",
+                "description": "Retorna um curso",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "ID do curso",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Operação com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/Curso"
+                        }
+                    }
+                }
+            }
+        },
+        "/escolas": {
+            "get": {
+                "summary": "Lista escolas",
+                "description": "Lista todos as escolas",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação com sucesso",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Escola"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/escola/{id}": {
+            "get": {
+                "summary": "Procura escola por ID",
+                "description": "Retorna uma escola",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "ID da escola",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Operação com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/Escola"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Aluno": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "idEscola": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "idCurso": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "nome": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "telefone": {
+                    "type": "string",
+                    "format": "(99) 99999-9999"
+                },
+                "ativo": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Curso": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "nome": {
+                    "type": "string"
+                }
+            }
+        },
+        "Escola": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "nome": {
+                    "type": "string"
+                },
+                "telefone": {
+                    "type": "string",
+                    "format": "(99) 99999-9999"
+                },
+                "ativo": {
+                    "type": "boolean"
+                },
+                "cursos": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}
