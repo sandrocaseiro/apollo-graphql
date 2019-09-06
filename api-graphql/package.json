@@ -21,7 +21,6 @@
         "graphql": "^14.5.4",
         "graphql-import": "^0.7.1",
         "graphql-tools": "^4.0.5",
-        "graphql-voyager": "^1.0.0-rc.27",
-        "lodash": "^4.17.15"
+        "graphql-voyager": "^1.0.0-rc.27"
     }
 }

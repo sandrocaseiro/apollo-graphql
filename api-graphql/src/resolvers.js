@@ -2,47 +2,47 @@ const api = require('./httpClient');
 
 module.exports = {
     Query: {
-        alunos(parent) {
+        alunos() {
             console.log('------------------------------------------------');
             return api.get('/alunos')
                 .then(resp => resp.data);
         },
-        aluno(parent, args) {
+        aluno(_, args) {
             console.log('------------------------------------------------');
             return api.get(`/alunos/${args.id}`)
                 .then(resp => resp.data);
         },
-        cursos(parent) {
+        cursos() {
             console.log('------------------------------------------------');
             return api.get('/cursos')
                 .then(resp => resp.data);
         },
-        curso(parent, args) {
+        curso(_, args) {
             console.log('------------------------------------------------');
             return api.get(`/cursos/${args.id}`)
                 .then(resp => resp.data);
         },
-        escolas(parent) {
+        escolas() {
             console.log('------------------------------------------------');
             return api.get('/escolas')
                 .then(resp => resp.data);
         },
-        escola(parent, args) {
+        escola(_, args) {
             console.log('------------------------------------------------');
             return api.get(`/escolas/${args.id}`)
                 .then(resp => resp.data);
         }
     },
     Aluno: {
-        curso(parent, args, ctx) {
+        curso(parent, _, ctx) {
             return ctx.dataLoaders.curso.load(parent.idCurso);
         },
-        escola(parent, args, ctx) {
+        escola(parent, _, ctx) {
             return ctx.dataLoaders.escola.load(parent.idEscola);
         }
     },
     Escola: {
-        cursos(parent, args, ctx) {
+        cursos(parent, _, ctx) {
             return ctx.dataLoaders.curso.loadMany(parent.cursos);
         }
     }
